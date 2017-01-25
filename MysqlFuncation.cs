@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -253,7 +253,7 @@ namespace IPageFollowing
                  {
                      FacebookClient f = new FacebookClient(fb.token);
                      dynamic data = f.Get("/me?fields=picture");
-                     string query = "Update fbacc Set Email='" + fb.email + "' Password='" + fb.password + "' Token='" + fb.token + "' Image='" + data.picture.data.url + "' WHERE Name='" + name + "'";
+                     string query = "Update fbacc Set Email='" + fb.email + "' AND Password='" + fb.password + "' AND Token='" + fb.token + "' AND Image='" + data.picture.data.url + "' WHERE Name='" + name + "'";
                      using (MySqlCommand cmd = new MySqlCommand(query, conn))
                      {
                          cmd.ExecuteNonQuery();
